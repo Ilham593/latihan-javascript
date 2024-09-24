@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>latihan spread operator</title>
+    <style>
+    body {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-align: center;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    span {
+        display: inline-block;
+        transition: 0.5s;
+    }
+
+    span:hover {
+        transform: scale(1.5);
+        color: red;
+    }
+    </style>
+</head>
+
+<body>
+    <h3>ilham</h3>
+    <ul>
+        <li>ilham</li>
+        <li>rendi</li>
+        <li>putra</li>
+    </ul>
+    <script>
+    const nama = document.getElementsByTagName('h3');
+    const arr = [...nama[0].textContent];
+    const nama1 = arr.map(h => `<span>${h}</span>`)
+        .join('');
+    nama[0].innerHTML = nama1;
+
+
+
+    const liNama = document.querySelectorAll('li');
+    const arrBaru = [...liNama];
+    const liBaru = arrBaru.map(h => `<span>${h}</span>`)
+    liNama.innerHTML = liBaru;
+
+
+    const person = {
+        name: 'ilham',
+        age: 20
+    }
+
+    const personBaru = { ...person, location: 'bengkulu' }
+    const personBaru1 = { ...person }
+    console.log(personBaru1);
+
+
+    // // latihan
+    // function hitungTotal(a, b, c) {
+    //     return a + b + c;
+    // }
+
+    // const angka = [10, 20, 30];
+    // console.log(hitungTotal(...angka));
+    // // Output: 60
+
+    // const produk = ['kopi', 'susu', 'teh'];
+    // const produk1 = produk.map(h => `${h} : harga tidak tersedia` );
+    // const produk2 = produk.map(i => {
+    //     return {...i, price: 'tidak tersedia'}
+    // } );
+    // console.log(produk2);
+    // console.log(produk1);
+
+    const produk = ['Laptop', 'Smartphone', 'Tablet'];
+
+const produkDenganHarga = produk.map(item => {
+  return {...item, harga: 'Tidak Tersedia'};
+});
+
+console.log(produkDenganHarga);
+// Output: [{name: 'Laptop', harga: 'Tidak Tersedia'}, {name: 'Smartphone', harga: 'Tidak Tersedia'}, {name: 'Tablet', harga: 'Tidak Tersedia'}]
+
+    </script>
+</body>
+
+</html>

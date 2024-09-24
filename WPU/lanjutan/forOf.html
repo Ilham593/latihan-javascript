@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>latihan penggunaan for of dan for in</title>
+</head>
+
+<body>
+    <script>
+    // const myArray = ["satu", "dua", "tiga"];
+    // for(arr of myArray){
+    // 	console.log(arr);
+    // }
+
+    // document.body.innerHTML = arr;
+
+    // const person =  new Map([
+    // 	["name", "John"],
+    // 	["age", 30],
+    // 	["city", "New York"]
+    // 	])
+
+    // for(let [key, value] of person){
+    // 	console.log(key, value);	
+    // }
+
+    // const numbers = [4, 15, 8, 23, 16, 42];
+    // for(let number of numbers){
+    // 	if(number > 10){
+    // 		console.log(number);	
+    // 	}
+    // }
+
+    // const nama = 'ilham pratama kusuma'
+    // for(let huruf of nama){
+    // 	console.log(huruf);	
+    // }
+
+    // Latihan 3: Mengiterasi dan Menggabungkan Objek Buat dua array yang berisi nama-nama dan umur. Gunakan for...of untuk menggabungkan nama dengan umur dan tampilkan hasilnya.
+ 	// const arrNama = ['ilham', 'rendi', 'budi']
+ 	// const arrUmur = [20, 30, 40]
+ 	// for(let i = 0; i < arrUmur.length; i++){
+	//  	console.log(`${arrNama[i]} sekarang berumur ${arrUmur[i]} tahun`);	
+ 	// }
+
+    	// Latihan 4: Mencari Duplikat dalam Array dengan Set Buat sebuah array berisi beberapa angka yang mungkin memiliki duplikat. Gunakan for...of dengan Set untuk mencari dan menghilangkan angka duplikat.
+
+    	const angka = [3,4,6,3,5,4,5,3,]
+    	const angkaYangSama =  new Set();
+    	for(let num of angka){
+	    	angkaYangSama.add(num);	
+    	}
+
+    	console.log(...angkaYangSama);
+    </script>
+</body>
+
+</html>

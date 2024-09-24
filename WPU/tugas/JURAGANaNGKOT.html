@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function JuraganAngkot(nama, trayek, penumpang, kas) {
+        this.nama = nama;
+        this.trayek = trayek;
+        this.penumpang = penumpang;
+        this.kas = kas;
+
+        this.penumpangNaik = function (namaPenumpang) {
+          // Cek apakah ada slot undefined dan ganti dengan penumpang baru
+          for (let i = 0; i < this.penumpang.length; i++) {
+            if (this.penumpang[i] === undefined) {
+              this.penumpang[i] = namaPenumpang;
+              return penumpang;
+            }
+          }
+          // Jika tidak ada slot undefined, tambahkan penumpang di akhir array
+          this.penumpang.push(namaPenumpang);
+          return penumpang;
+        };
+
+        this.penumpangTurun = function (namaPenumpang, bayar) {
+          if (this.penumpang.length == 0) {
+            alert("Angkot masih kosong");
+            return penumpang;
+          }
+
+          for (let i = 0; i < this.penumpang.length; i++) {
+            if (this.penumpang[i] == namaPenumpang) {
+              this.penumpang[i] = undefined;
+              this.kas += bayar;
+              return penumpang;
+            }
+          }
+        };
+      }
+
+      let angkot1 = new JuraganAngkot(
+        "Ilham",
+        ["Pondok Besi", "Tengah Padang"],
+        [],
+        0
+      );
+    </script>
+  </body>
+</html>

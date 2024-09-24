@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		Closure
+	</title>
+</head>
+<body>
+	<script>
+		// function outer() {
+		// 	let outer = 'saya adalah variabel outer';
+
+		// 	function inner() {
+		// 		console.log(outer);	
+		// 	}
+		// 	return	inner;
+		// }
+
+		// const closure = outer();
+		// closure();
+
+		//private variable
+		// function Counter(){
+		// 	let count = 0;
+
+		// 	return {
+		// 		increment: function(){
+		// 			count++
+		// 			console.log(count)
+		// 		},
+
+		// 		decrement: function(){
+		// 			count--
+		// 			console.log(count)
+		// 		}
+		// 	}
+		// }
+
+		// const myCounter =  Counter()
+		// console.log(myCounter)
+
+		// function multiplier(factor) {
+		// 	return function(numberr){
+		// 		return numberr * factor
+		// 	}
+		// }
+
+		// const doubler = multiplier(2);
+		// console.log(doubler(5))
+
+		const Module = (function() {
+	    let privateVar = "Ini privat";
+
+	    return {
+	        publicMethod: function() {
+	            console.log(privateVar);
+	        }
+	    };
+		})();
+
+		privateVar = "Ini publik";
+
+		Module.publicMethod(); // Output: "Ini privat"
+
+	</script>
+</body>
+</html>

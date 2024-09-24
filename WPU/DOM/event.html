@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dom Selection</title>
+  <style>
+    * { 
+        border: 2px solid #dedede; 
+        padding: 15px; 
+        margin: 15px; 
+    }
+    html { 
+      margin: 0;
+      padding: 0;
+    }
+    body { 
+      max-width: 600px;
+      margin: 30px auto;
+      font-family: sans-serif;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="judul">Hello World</h1>
+  <div id="container">
+      <section id="a">
+          <p class="p1">paragraf 1</p>
+          <a href="http://instagram.com/sandhikagalih">Instagram Sandhika Galih</a>
+          <p class="p2">paragraf 2</p>
+          <p class="p3">paragraf 3</p>
+      </section>
+      <section id="b">
+          <p>paragraf 4</p>
+          <ul>
+              <li>item 1</li>
+              <li>item 2</li>
+              <li>item 3</li>
+          </ul>
+      </section>
+  </div>
+
+<script>
+	const p3 = document.querySelector('.p3');
+	p3.addEventListener('click', function(){
+		p3.style.backgroundColor = 'lightblue';
+	})
+
+	const p4 = document.querySelector('#b p');
+	p4.addEventListener('click', function(){
+    let li = document.querySelectorAll('section#b ul li');
+		let ul = document.querySelector('section#b ul');
+		let libaru = document.createElement('li');
+		libaru.textContent = 'item baru';
+		ul.appendChild(libaru);
+
+    if (li.length > 3) {
+      console.log('li lebih dari 3');
+      p4.removeEventListener('click', arguments.callee);
+    }
+	})
+</script>
+</body>
+</html>

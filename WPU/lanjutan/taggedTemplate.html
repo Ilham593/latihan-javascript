@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tag template </title>
+    <style>
+        .hl {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+    // tagged template
+    // function highlight(strings, ...values) {
+    //     return strings.reduce((result, str, i) => `${result}${str}<strong>${values[i] || ''}</strong>`, '');
+    // }
+
+    // const name = "Ilham";
+    // const age = 2-5;
+    // const message = highlight `Nama saya ${name} dan saya berusia ${age} tahun.`;
+    // console.log(message);
+    // document.body.innerHTML = message;
+    // // Output: Nama saya <strong>Ilham</strong> dan saya berusia <strong>25</strong> tahun.
+
+    // function currency(strings, ...values) {
+    //     return strings.reduce((result, str, i) =>
+    //         `${result}${str}${values[i] ? `Rp${parseFloat(values[i]).toFixed(2)}` : ''}`, ''
+    //     );
+    // }
+
+    // const harga = 2500;
+    // const pajak = 250;
+    // const totalHarga = currency `Total harga: ${harga} dengan pajak: ${pajak}.`;
+    // console.log(totalHarga);
+    // Output: Total harga: Rp2500.00 dengan pajak: Rp250.00.
+
+
+        // const nama = 'ilham'
+        // const umur = 25
+
+        // function coba(string , ...values) {
+        //     return string + ' ' + ' nah ' + values.join(' ')
+        // }
+
+        // const hasil = coba`saya ${nama} dan saya berusia ${umur} tahun.`
+        // console.log(hasil)
+
+        // const nama = 'ilham'
+        // const umur = 25
+
+        // function coba(string , ...values) {
+        //     // let hasil = ''
+        //     // string.forEach((str, i)=> {
+        //     //     hasil += `${str}${values[i] || ''}`
+        //     // })
+
+        //     // return hasil
+
+        //     return string.reduce((result, str, i) => ` ${result}${str}${values[i] || ''}`, '')
+        // }
+
+        // const hasil1 = coba`saya ${nama} dan saya berusia ${umur} tahun.`
+        // console.log(hasil1)
+
+        //highlight
+         const nama = 'ilham'
+        const umur = 25
+
+        function highligt(string , ...values) {
+            return string.reduce((result, str, i) => ` ${result}${str} <span class='hl'>${values[i] || ''}</span>`, '')
+        }
+
+        const hasil1 = highligt`saya ${nama} dan saya berusia ${umur} tahun.`
+        document.body.innerHTML = hasil1
+    </script>
+</body>
+
+</html>

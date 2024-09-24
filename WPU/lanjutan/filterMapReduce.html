@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>hof array map filter reduce</title>
+</head>
+<body>
+	<script>
+		// const numbers = [1, 2, 3, 4, 5];
+		// const double = numbers.map(x => x * 2);
+		// console.log(double);
+
+		// const numbers = [1, 2, 3, 4, 5];
+		// const sum = numbers.reduce((x, y) => x + y);
+		// console.log(sum);
+		// const newAngka = []
+		// const numbers = [-1,8,9,1,2,-5,-4,3,2,9]
+		// for(let i = 0; i < numbers.length; i++){
+		// 	if(numbers[i] >  3){
+		// 		newAngka.push(numbers[i])
+		// 	}
+		// }
+
+		// console.log(newAngka)
+
+		// const numbers = [-1,8,9,1,2,-5,-4,3,2,9]
+		// const newAngka = numbers.filter(function(x){
+		// 	return x > 3
+		// })
+
+		// console.log(newAngka)
+
+		const numbers = [-1,8,9,1,2,-5,-4,3,2,9]
+		const newAngka = numbers.filter(x => x > 3)
+		.map(x => x * 2)
+		.reduce((x, y) => x + y)
+		console.log(newAngka)
+
+	</script>
+</body>
+</html>

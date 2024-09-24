@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar belanja</title>
+    <style>
+        *,html {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/*			margin: auto;*/
+		}
+
+		.container {
+			text-align: center;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+			height: auto;
+			width: 500px;	
+			margin: auto;
+			padding-bottom: 20px;
+		}
+
+		.container h3 {
+			margin: 20px 20px;	
+		}
+
+		#item-input {
+			margin: 20px 20px;	
+			padding: 10px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			font-weight: bold;
+			text-align: center;
+/*			*/uppercase;
+			text-transform: uppercase;
+		}
+
+		#add-item, #remove-item-duplikat {
+			padding: 5px 10px;	
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			font-weight: bold;
+			text-align: center;
+
+		}
+
+		#add-item {
+			background-color: palegreen;	
+		}
+
+		#remove-item-duplikat {
+			background-color: red;
+			color: white;
+		}
+
+		/* Perbaikan pada CSS */
+		ul {
+		    margin: 20px auto;
+		    width: 80%;
+		    box-shadow: 1px 4px 8px 0 rgba(0, 0, 0, 0.6);
+		    padding: 10px;
+		    display: none;
+		    border-radius: 5px;
+		    list-style: none; /* Tambahkan ini untuk menghilangkan bullet points */
+		}
+
+		.li-item {
+		    width: 100%;
+		    border: 1px solid #ccc;
+		    margin-right: auto;
+		    padding: 10px;
+		    margin-bottom: 10px;
+		    border-radius: 5px;
+		    display: flex; /* Gunakan Flexbox */
+		    justify-content: space-between; /* Rata kiri dan kanan */
+		    align-items: center; /* Rata vertikal */
+		}
+
+
+		.li-item .btn-hapus-item {
+			padding: 5px 10px;
+			margin-left: 60%;
+			color: white;
+			background-color: red;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			font-weight: bold;
+			text-align: center;
+			text-transform: uppercase;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+		}
+
+		.li-item .btn-hapus-item:hover {
+			cursor: pointer;
+			opacity: 0.8;
+			transform: scale(1.1);
+
+		}
+	</style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>Daftar belanja</h3>
+        <input type="text" id="item-input" placeholder="masukan nama item"> <br>
+        <button id="add-item">Tambah</button>
+        <button id="remove-item-duplikat">Hapus duplikat</button>
+        <ul id="produk-list"></ul>
+    </div>
+    <script>
+    // aplikasi membuat daftar belanja
+const tambahItem = document.getElementById('add-item');
+tambahItem.addEventListener('click', function() {
+    const input = document.getElementById('item-input');
+    const item = input.value.trim();
+
+    if (item === '') {
+        alert('masukan item');
+        return;
+    }
+
+    const ul = document.getElementById('produk-list');
+    const li = document.createElement('li');
+    li.classList.add('li-item');
+
+    // Tambahkan teks item ke dalam elemen span
+    const spanText = document.createElement('span');
+    spanText.textContent = item;
+    li.appendChild(spanText);
+
+    // Tambahkan tombol hapus
+    const btnHapusItem = document.createElement('button');
+    btnHapusItem.classList.add('btn-hapus-item');
+    btnHapusItem.textContent = 'Hapus';
+    li.appendChild(btnHapusItem);
+
+    ul.appendChild(li);
+    ul.style.display = 'block';
+    input.value = '';
+
+    // Hapus item
+    btnHapusItem.addEventListener('click', function() {
+        ul.removeChild(li);
+        if (ul.children.length === 0) {
+            ul.style.display = 'none';
+        }
+    });
+});
+
+// Hapus item yang sama
+const hapusDuplikat = document.getElementById('remove-item-duplikat');
+hapusDuplikat.addEventListener('click', function(){
+    const ul = document.getElementById('produk-list');	
+    const items = [...ul.getElementsByTagName('li')];
+    const itemTexts = new Set();
+
+    items.forEach(li => {
+        const text = li.firstChild.textContent;
+        if (itemTexts.has(text)) {
+            ul.removeChild(li);
+        } else {
+            itemTexts.add(text);
+        }
+    });
+
+    if (ul.children.length === 0) {
+        ul.style.display = 'none';
+    }
+});
+
+    </script>
+</body>
+
+</html>

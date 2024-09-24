@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>belajar destrcuturing function</title>
+</head>
+<body>
+	<script>
+		// destrcuturing function
+		// 6. Latihan:
+		// Destructuring Function dalam Objek 
+		// Buat sebuah fungsi yang menerima objek mahasiswa sebagai parameter dan mengembalikan string dengan informasi lengkap tentang mahasiswa tersebut.
+
+		// Destructuring Function dengan Default Parameter Buat sebuah fungsi yang menerima objek mahasiswa dan memiliki nilai default untuk beberapa parameter.
+
+		// Mengupdate Nilai dengan Destructuring Function Tambahkan fitur untuk mengupdate nilai matematika dan bahasa dari objek mahasiswa menggunakan destructuring.
+
+		// const mahasiswa = {
+		// 	nama: 'saya',
+		// 	umur: 20,
+		// 	pekerjaan: 'mahasiswa',
+		// 	nilai: {
+		// 		matematika: 90,	
+		// 		bahasa: 80
+		// 	}
+		// }
+
+		// function getMahasiswa({nama, umur, pekerjaan, nilai: {matematika, bahasa}}) {
+		// 	return `halo ${nama} umur ${umur} pekerjaan ${pekerjaan} matematika ${matematika} bahasa ${bahasa}`
+		// }
+		// console.log(getMahasiswa(mahasiswa))
+
+		// function getMahasiswa2({})
+
+		// function  jumlahKali(a,b){
+		// 	return [a*b, a+b]
+		// }
+
+
+		// const [a,b] = jumlahKali(1,10)
+		// console.log(a)
+		// console.log(b)
+
+		// function kalkulasi(a,b){
+		// 	return {
+		// 		penjumlahan: a+b,	
+		// 		pengurangan: a-b,
+		// 		perkalian: a*b,
+		// 		pembagian: a/b
+		// 	}
+		// }
+
+		// const {penjumlahan, pengurangan, perkalian, pembagian} = kalkulasi(1,10)
+		// console.log(penjumlahan)
+		// console.log(pengurangan)
+		// console.log(perkalian)
+		// console.log(pembagian)
+
+
+		const mh1 = {
+			nama: 'ilham',
+			umur: 20,
+			nilai: {
+				matematika: 90,
+				bahasa: 80
+			}
+		}
+
+		function cetakMhs({nama, umur, nilai: {matematika, bahasa}}) {
+			return `halo ${nama} umur ${umur} nilai matematika ${matematika} bahasa ${bahasa}`
+		}
+		console.log(cetakMhs(mh1))
+
+	</script>
+</body>
+</html>

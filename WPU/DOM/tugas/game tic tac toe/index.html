@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		Tic Tac Toe game
+	</title>
+	<style>
+		*,html {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			border: 1px solid black	;
+		}
+
+		body {
+			margin: auto;
+			height: 100vh;
+			width: 100%;
+		}
+
+		.container {
+			width: 50%;
+			height: 50%;
+			background-color: red;
+
+		}
+
+		.container .game {
+			width: 100%;
+			height: 100%;
+			background-color: yellow;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.container .game .kotak{
+			background-color: blue;
+			width: 80px;
+			height: 80px;
+		}
+
+		.container .game .atas, .container .game .tengah, .container .game .bawah {
+			display: flex;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="game">
+			<div class="atas">
+				<div class="kotak"></div>
+				<div class="kotak"></div>
+				<div class="kotak"></div>
+			</div>
+			<div class="tengah">
+				<div class="kotak"></div>
+				<div class="kotak"></div>
+				<div class="kotak"></div>
+			</div>
+			<div class="bawah">
+				<div class="kotak"></div>
+				<div class="kotak"></div>
+				<div class="kotak"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

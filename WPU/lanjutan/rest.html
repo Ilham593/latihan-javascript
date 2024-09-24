@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang Belanja</title>
+    <style>
+    	.libaru {
+    		color: blue;
+    		transition: 1s;
+    	}
+    </style>
+</head>
+<body>
+	<input type="text" id="inputBarang">
+    <button id="btn">Tambah Buah</button>
+    <ul id="keranjang"></ul>
+
+    <script>
+    	const inputBarang = document.getElementById('inputBarang')
+        const btn = document.getElementById('btn')
+        const keranjang = document.getElementById('keranjang')
+        btn.addEventListener('click',function(){
+        	const input = inputBarang.value
+        	const liBaru = document.createElement('li')
+        	liBaru.textContent = input
+        	liBaru.classList.add('libaru')
+        	keranjang.appendChild(liBaru)
+        	inputBarang.value = ''
+        })
+
+        function angka(...angka){
+            let total = 0   
+            for(const a of angka){
+                total += a   
+            }
+
+            return total
+        }
+
+        console.log(angka(1,2,3,4,5))
+
+
+        function myfilter(type, ...values){
+            return values.filter(v => typeof v === type)
+        }
+
+        console.log(myfilter('number',1,2,3,4,5,'hello','world',55))
+    </script>
+</body>
+</html>

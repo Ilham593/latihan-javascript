@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Game Tebak Angka</title>
+	<style>
+		*,html {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			border: 1px solid black;
+			height: 100vh;
+			width: 100%;
+			display: flex;
+		}
+		.container {
+			border-radius: 10px;
+			width: 400px;
+			height: 400px;
+			margin:  auto;
+			background-color: #f2f2f2;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+			padding: 20px;
+			text-align: center;
+		}
+
+
+		.container h1 {
+			margin-bottom: 20px;	
+
+		}
+
+		.container p {
+			margin-bottom: 10px;
+			color: dimgray;
+		}
+
+		.container input {
+			padding: 10px;
+			margin-bottom: 10px;
+		}
+
+		.container button {
+			padding: 7px 20px;
+			background-color: #4CAF50;
+			border-radius: 10px;
+			margin-bottom: 10px;
+		}
+
+		.container button:hover {
+			background-color: white;
+			transition: 0.5s;
+			font-weight: bold;
+
+		}
+
+
+		.container #hasil {
+			margin-bottom: 10px;
+			padding: 10px;
+			background-color: lightgray;
+			display: none;
+			font-family: Helvetica;
+			border-radius: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Tebak Angka</h1>
+		<p>Komputer telah memilih angka. <br> Silakan tebak 1 - 10!</p>
+
+		<input type="number" id="input"> <br>
+		<button id="acak">Acak</button>
+
+		<div id="hasil"></div>
+		<p id="batas"></p>
+		<p id="sisa-tebak"></p>
+	</div>
+	<script>
+		let pilihanKomputer = Math.floor(Math.random() * 10) + 1;
+		let tebakan = 0;
+		let maxTebakan = 5;
+		let sisaTebak = document.getElementById('sisa-tebak')
+		let batas = document.getElementById('batas')
+
+		let acak = document.getElementById('acak');
+		acak.addEventListener('click', function(){
+			let input = document.getElementById('input').value;
+			let tebak = document.getElementById('hasil');
+			tebak.style.display = 'block';
+			
+			if(isNaN(input) || input === ''){
+				tebak.innerHTML =  'silakan masukan angka yang valid'
+				return
+			}
+
+			tebakan++;
+			
+			if (input == pilihanKomputer) {
+				tebak.innerHTML = 'Anda benar';
+			} else if (input < pilihanKomputer) {
+				tebak.innerHTML = 'Angka terlalu kecil';
+			} else if (input > pilihanKomputer) {
+				tebak.innerHTML = 'Angka terlalu besar';
+			}
+			
+			tebak.innerHTML += `<br>Komputer memilih angka ${pilihanKomputer}, kamu memilih angka ${input}`;
+			tebak.innerHTML += `<br>Jumlah tebakan: ${tebakan} dari ${maxTebakan}`;
+			
+			if (tebakan >= maxTebakan && input != pilihanKomputer) {
+				sisaTebak.innerHTML += `<br>Kamu sudah menggunakan semua tebakan. Game over!`;
+				acak.disabled = true;
+			}
+		});
+	</script>
+</body>
+</html>

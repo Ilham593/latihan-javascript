@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>javascript lanjutan (object)</title>
+</head>
+<body>
+	<script>
+		// class animal {
+		// 	constructor (nama,umur) {
+		// 		this.name = nama
+		// 		this.age = umur
+		// 	}
+		// }
+
+		// class cat extends animal {
+		// 	constructor (nama,umur,ras) {	
+		// 		super(nama,umur)	
+		// 		this.race = ras
+
+		// 	}
+
+		// }
+
+		// const myCat = new cat('kucing', 2, 'persia')
+
+
+		let methodmhs = {
+			makan : function (porsi) {
+				this.energi += porsi	
+				console.log(`makan ${this.energi}`)
+			}
+		}
+
+		function Mahasiswa(nama, energi){
+			let mahasiswa = Object.create(methodmhs)
+			this.nama = nama
+			this.energi = energi
+		}
+
+		let ilham = new Mahasiswa('ilham', 10)
+		// nambah energi
+		let rendi = new Mahasiswa('rendi', 20)
+		rendi.makan(5)
+		</script>
+</body>
+</html>

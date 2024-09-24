@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk Toko Online</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h3 {
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #product-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #product-list li {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #product-list li:last-child {
+            border-bottom: none;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+        }
+
+        #product-names, #total-price {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        @media (max-width: 600px) {
+            #product-list {
+                max-width: 100%;
+                margin: 20px 10px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <h3>Daftar Produk</h3>
+    <ul id="product-list">
+        <li>Nama: Laptop, Kategori: Electronics, Harga: 12000000</li>
+        <li>Nama: Meja, Kategori: Furniture, Harga: 1500000</li>
+        <li>Nama: Smartphone, Kategori: Electronics, Harga: 8000000</li>
+        <li>Nama: Buku, Kategori: Books, Harga: 100000</li>
+        <li>Nama: TV, Kategori: Electronics, Harga: 6000000</li>
+    </ul>
+
+    <h3>Hasil Filter dan Perhitungan</h3>
+    <p>Produk Elektronik: <span id="product-names"></span></p>
+    <p>Total Harga Setelah Diskon: <span id="total-price"></span></p>
+
+    <script>
+        const pelektronik = Array.from(document.querySelectorAll('ul li'));
+
+        // Pilih produk dengan kategori Electronics
+        const arrElektronik = pelektronik.filter(e => e.textContent.includes('Electronics'));
+
+        // Terapkan diskon 20% dan buat array baru dengan teks yang diperbarui
+        arrElektronik.forEach(e => {
+            e.textContent = e.textContent.replace('Electronics', 'Electronics - Diskon 20%');
+        });
+
+        // Hitung total harga
+        const totalHarga = arrElektronik.reduce((total, e) => {
+            // Mengambil bagian harga dari teks
+            const harga = e.textContent.match(/Harga:\s*(\d+)/);
+            // Tambahkan harga ke total jika ditemukan
+            return harga ? total + parseInt(harga[1]) : total;
+        }, 0);
+
+        // Buat daftar nama produk elektronik
+        const productNames = arrElektronik.map(e => e.textContent.split('Harga:')[0].trim());
+        document.querySelector('#product-names').textContent = productNames.join(', ');
+
+        // Hitung harga setelah diskon 20%
+        const totalPriceAfterDiscount = totalHarga * 0.8;
+        document.querySelector('#total-price').textContent = totalPriceAfterDiscount.toLocaleString();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>destucturing object</title>
+</head>
+<body>
+	<script>
+		// const arr = [1, 2, 3, 4, 5];
+
+		// const [a, b, c, d, f] = arr;
+
+		// console.log(a, b, c, d);
+
+		// const person = {
+		// 	firstName: "John",
+		// 	// lastName: "Doe",
+		// }
+
+		// const {firstName, lastName ='ilham'} = person;
+		// console.log(firstName);
+		// console.log(lastName);
+
+		// const person = {
+		// 	nama : "ilham",
+		// 	umur : 20,
+		// 	alamat : {
+		// 		jalan : 'kaki seribu',
+		// 		kota : 'jakarta'
+		// 	}
+		// }
+
+		// const {nama, alamat:{jalan,kota}} = person;
+		// console.log(jalan,kota);
+
+		// function coba(){
+		// 	return [1,2]
+		// }
+
+		// let [a, b] = coba();
+		// console.log(a);
+		// [a,b ] = [b,a]
+		// console.log(a);
+
+		const mhs = {
+			id : 123,
+			nama : 'ilham',
+		}
+
+		function getIdMhs({id}){
+			return id;
+		}
+
+		console.log(getIdMhs(mhs));
+	</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pengulangan bersarang</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      #starPattern {
+        font-family: monospace;
+        white-space: pre;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Pola Bintang Piramida</h1>
+    <pre id="starPattern"></pre>
+    <script>
+      // let j = "";
+      // for (let i = 5; i > 0; i--) {
+      //   // console.log(j);
+      //   for (let k = 0; k < i; k++) {
+      //     j += "*";
+      //   }
+      //   j += "\n";
+      // }
+      // console.log(j);
+
+      // let a = "";
+      // for (let b = 0; b < 5; b++) {
+      //   for (let c = 0; c <= b; c++) {
+      //     a += "*";
+      //     a += "*";
+      //   }
+      //   // console.log(a);
+      //   a += "\n";
+      // }
+      // console.log(a);
+
+      let jumlahBaris = 5;
+      let polaBintang = '';
+
+      for (let barisSaatIni = 1; barisSaatIni <= jumlahBaris; barisSaatIni++) {
+        for(let spasi = 1; spasi <= jumlahBaris - barisSaatIni; spasi++){
+          polaBintang += ' ';
+        }
+        for (let Bintang = 1; Bintang <= 2 * barisSaatIni - 1; Bintang++) {
+          polaBintang += '*';
+        }
+        polaBintang += '\n';
+      }
+      console.log(polaBintang);
+    </script>
+  </body>
+</html>

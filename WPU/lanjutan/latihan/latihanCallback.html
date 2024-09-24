@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>latihan callback</title>
+</head>
+
+<body>
+    <!-- Latihan 1: Memproses Daftar Angka
+		Deskripsi: Buat sebuah fungsi prosesAngka yang menerima sebuah array angka dan sebuah callback sebagai parameter. Callback ini harus dipanggil untuk setiap angka di dalam array.
+
+		Langkah-langkah:
+
+		Definisikan fungsi prosesAngka yang menerima dua parameter: sebuah array angka (angkaArray) dan sebuah fungsi (callback).
+		Dalam fungsi prosesAngka, gunakan perulangan untuk mengiterasi setiap angka dalam angkaArray.
+		Untuk setiap angka, panggil callback dengan angka tersebut sebagai argumen.
+		Panggil prosesAngka dengan array angka dan callback yang mencetak setiap angka.
+		Pertanyaan untuk dipikirkan:
+
+		Bagaimana kamu bisa menggunakan callback untuk mengubah angka sebelum mencetaknya?
+		Bagaimana kamu bisa menggunakan callback untuk mengumpulkan hasil dari pemrosesan setiap angka ke dalam array baru? -->
+    <script>
+    // function prosesAngka(angkaArray, callback) {
+    // 	angkaArray.forEach(callback);
+    // 	console.log(angkaArray);
+    // }
+
+    // function cetakAngka(angka) {
+    // 	console.log(angka);	
+    // }
+
+    // prosesAngka([1, 2, 3, 4, 5], cetakAngka);
+
+
+    // function hitung(a,b, tambah){
+    // 	return tambah(a,b)
+    // }
+
+    // function kali(x,y){
+    // 	return x*y
+    // }
+
+    // console.log(hitung(2,3, kali))
+
+
+    // 		function ambilDataAsinkron(url, callback) {
+    //     fetch(url)
+    //         .then(response => response.json())
+    //         .then(data => callback(data)) // Memanggil callback dengan data yang diambil
+    //         .catch(error => console.error('Error:', error)); // Menangani error jika ada
+    // }
+
+    // ambilDataAsinkron('https://jsonplaceholder.typicode.com/users', (data) => {
+    //     console.log(data); // Menampilkan data di konsol
+    // });
+
+
+    function jalankakProses(onSucces, onFailed) {
+        setTimeout(() => {
+            let random = Math.random()
+            if (random < 0.5) {
+                onSucces()
+                console.log(random)
+            } else {
+                onFailed()
+                console.log(random)
+            }
+        }, 3000)
+    }
+    console.log('mulai')
+    jalankakProses(() => {
+        console.log('proses sukses')
+    }, () => {
+        console.log('proses gagal')
+    })
+    console.log('selesai')
+    </script>
+</body>
+
+</html>

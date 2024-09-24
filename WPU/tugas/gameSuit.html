@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let tanya = true
+    while(tanya){
+      
+    
+      let player = prompt('gunting', 'batu', 'kertas')
+
+      let comp = Math.random()
+      console.log(comp)
+      if(comp < 0.34){
+        comp = 'kertas'
+      }else if(comp >= 0.34 && comp < 0.67){
+        comp = 'batu'
+      }else{
+        comp = 'gunting'
+      }
+      console.log(comp)
+
+      let hasil = ''
+      if(player == comp){
+        hasil = 'Seri'
+      }else if(player == 'kertas'){
+        if(comp == 'gunting'){
+          hasil = 'kalah'
+        }else{
+          hasil = 'menang'
+        }
+      }else if(player == 'batu'){
+        if(comp == 'kertas'){
+          hasil = 'kalah'
+        }else{
+          hasil = 'menang'
+        }
+      }else if(player == 'gunting'){
+        if(comp == 'batu'){
+          hasil = 'kalah'
+        }else{
+          hasil = 'menang '
+        }
+      }
+      console.log('kamu memilih ' + player + 'dan komputer memilih ' + comp + 'maka hasilnya ' + hasil)
+
+      tanya = confirm('lagi?')
+    }
+    alert('terimakasih')
+      </script>
+</body>
+</html>

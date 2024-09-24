@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>belajar callback funtion</title>
+</head>
+
+<body>
+    <script>
+    // ambil data dari API
+    function getData(url, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                callback(xhr.responseText);
+            }
+        }
+        xhr.send();
+    }
+
+    // panggil fungsi getData
+    getData('https://jsonplaceholder.typicode.com/posts/1', function(data) {
+        var data = JSON.parse(data);
+        console.log(data);
+    });
+    
+    c
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script>
+		const numbers = [1, 2, 3, 4, 5];
+		const newNumbers = numbers.map((number) => number * 2);
+		console.log(newNumbers);
+		const words = ["apple", "banana", "cherry"];
+		const newWords = words.map((word) => word.length);
+		console.log(newWords);
+		const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+		const newNumbers = numbers.filter((number) => number % 2 === 0);
+		console.log(newNumbers);
+		const people = [
+		  { name: "Alice", age: 25 },
+		  { name: "Bob", age: 30 },
+		  { name: "Charlie", age: 35 }
+		]
+		const newPeople = people.filter((person) => person.age > 30);
+		console.log(newPeople);
+		const numbers = [1, 2, 3, 4, 5];
+		const newNumbers = numbers.reduce((a,b) => a + b);
+		console.log(newNumbers);	
+		const prices = [100, 200, 300];
+		Menghitung total harga menggunakan reduce
+		const totalPrice = prices.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+		Menerapkan diskon sebesar 10%
+		const discountedPrice = totalPrice * 0.9; 
+		console.log(discountedPrice); // Output: 540
+
+
+
+	</script>
+</body>
+</html>

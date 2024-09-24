@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>belajar function</title>
+</head>
+<body>
+  <script>
+    function halo(nama) {
+      console.log(`halo ${nama}`)
+    }
+
+    halo('tama')
+
+    // function deklarasi
+    function tambah(a, b) {
+      console.log(a + b) // a + b
+    }
+
+    tambah(1, 2)
+
+    // function   expression
+    const kali = function(x,z){
+      let hasil;
+      hasil = x * z
+      return hasil
+    }
+
+    console.log(kali(2,3))
+
+    let nama = 'pratama putra'
+    console.log(nama.charAt(0))
+
+    // function hitung sisi kubus
+    function hitungSisi(a,b,c) {
+      return a * b * c
+
+    }
+
+    console.log(hitungSisi(2,2,2))
+
+    // hitungjumalh2kubus
+
+    function hitung2jumlahkubus(r,s){
+      let volumeA;
+      let volumeB;
+      let total;
+
+      volumeA = r * r * r
+      volumeB = s * s * s
+      total = volumeA + volumeB
+      return total
+    }
+
+    hitung2jumlahkubus(2,2)
+    console.log(hitung2jumlahkubus(2,2))
+
+    function panggilNamaSaya(name){
+      return `halo ${name}, semoga anda semakin baik!`
+    }
+
+    console.log(panggilNamaSaya('tama'))
+
+</script>
+</body>
+</html>

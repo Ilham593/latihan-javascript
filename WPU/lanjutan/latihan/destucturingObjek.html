@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>latihan destucturing objek</title>
+</head>
+
+<body>
+    <!-- Membuat Objek Siswa:
+
+	Buat sebuah objek siswa yang menyimpan data seperti nama, umur, kelas, nilai, dan hobi.
+	nilai merupakan sebuah objek yang menyimpan matematika, bahasa, dan sains.
+	Destructuring Objek:
+
+	Gunakan destructuring untuk mengambil data nama, umur, dan kelas dari objek siswa.
+	Destructuring juga digunakan untuk mengambil nilai matematika, bahasa, dan sains dari objek nilai.
+	Fungsi Menampilkan Data:
+
+	Buat sebuah fungsi untuk menampilkan informasi lengkap siswa dengan memanfaatkan hasil destructuring.
+	Tambahan:
+
+	Coba tambahkan fitur untuk mengupdate data nilai siswa menggunakan destructuring.
+	Buat fitur untuk menambah hobi baru ke dalam array hobi dengan memanfaatkan destructuring.
+	Tujuan:
+	Memahami cara destructuring bekerja dalam objek dan nested objek.
+	Menguasai penggunaan destructuring untuk menyederhanakan penulisan kode.
+	Memahami cara menggunakan destructuring dalam fungsi dan fitur tambahan.
+	Setelah Anda menyelesaikan latihan ini, Anda akan lebih memahami bagaimana dan kapan menggunakan destructuring assignment dalam pengembangan aplikasi JavaScript. -->
+    <script>
+    const mahasiswa = {
+        nama: 'ilham',
+        umur: 20,
+        kelas: '10',
+        nilai: {
+            matematika: 90,
+            bahasa: 80,
+            sains: 70
+        },
+        hobi: ['mancing', 'nonton']
+
+    }
+
+
+
+    function getMahasiswa({ nama, umur, kelas, nilai: { matematika, bahasa, sains }, hobi }) {
+        return `Nama: ${nama}, Umur: ${umur}, Kelas: ${kelas}, Matematika: ${matematika}, Bahasa: ${bahasa}, Sains: ${sains}, Hobi: ${hobi.join(', ')}`;
+    }
+
+    const mahasiswa2 = getMahasiswa(mahasiswa)
+    console.log(mahasiswa2)
+
+    let {matematika} = mahasiswa.nilai
+    console.log(matematika)
+    matematika = 100
+    console.log(matematika)
+
+    // nambah bod baru
+    let [hobi1, hobi2] = mahasiswa.hobi
+    console.log(hobi1)
+    </script>
+</body>
+
+</html>

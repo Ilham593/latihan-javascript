@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // let mahasiswa = {
+      //   nama : 'pratama',
+      //   umur : 25,
+      //   email : 'pratama@pratama',
+      //   ipSemester : [3.90, 3.80, 3.70],
+      // }
+
+      // let ipk = function(ipSemester){
+      //   let total =0
+      //   for(let  i = 0; i < ipSemester.length; i++){
+      //     total += ipSemester[i]
+      //   }
+      //   return total/ipSemester.length
+      // }
+
+      // console.log(ipk(mahasiswa.ipSemester))
+
+      // let mahasiswa2 = {
+      //   nama: "ilham",
+      //   usia: 19,
+      //   lulus: true,
+      //   ips: [3.9, 3.8, 3.7],
+      //   ipk: function(){
+      //     let total = 0;
+      //     for (let i = 0 ; i < this.ips.length; i++){
+      //       total += this.ips[i]
+      //     }
+      //     return total / this.ips.length
+      //   }
+      // };
+
+      // console.log(mahasiswa2.ipk());
+
+      //object literal
+      let mahasiswa = {
+        nama: "ilham",
+        usia: 19,
+        lulus: true,
+        ips: [3.9, 3.8, 3.7],
+        ipk: function () {
+          let total = 0;
+          for (let i = 0; i < this.ips.length; i++) {
+            total += this.ips[i];
+          }
+          return total / this.ips.length;
+        },
+      };
+
+      //object constructor
+      let mahasiswa1 = new Object({
+        nama: "ilham",
+        usia: 19,
+        lulus: true,
+        ips: [3.9, 3.8, 3.7],
+        ipk: function () {
+          let total = 0;
+          for (let i = 0; i < this.ips.length; i++) {
+            total += this.ips[i];
+          }
+          return total / this.ips.length;
+        },
+      });
+
+      //function declaration
+      function buatobjek(nama, usia, lulus, ips) {
+        let mhs1 = {};
+        mhs1.nama = nama;
+        mhs1.usia = usia;
+        mhs1.lulus = lulus;
+        return mhs1;
+
+        let mhs2 = {};
+        mhs2.ips = ips;
+        return mhs2;
+      }
+
+      console.log(buatobjek("ilham", 19, true, [3.9, 3.8, 3.7]));
+      console.log(buatobjek("rendi", 19, true, [3.9, 3.8, 3.7]));
+
+      // fucntion  constructor (kita akan gunakan cara yang ini untuk membuat objek)
+      function Mahasiswa2(nama, usia, lulus, ips) {
+        this.nama = nama;
+        this.usia = usia;
+        this.lulus = lulus;
+        this.ips = ips;
+      }
+
+      console.log(new Mahasiswa2("ilham", 19, true, [3.9, 3.8, 3.7]));
+
+
+      let a = 10;
+      console.log(this.a);
+      function halo() {
+        console.log(this);
+        console.log('hallo  ')
+      }
+
+      this.halo();
+      // Object this
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>latihan asynchronous</title>
+</head>
+<body>
+	<script>
+		function ambilData(callback){
+			setTimeout(() => {
+				console.log('ambil data')
+				callback()
+			},5000)
+		}
+
+		function tampilkanData(){
+			console.log('manampilkan data')	
+		}
+
+		ambilData(tampilkanData)
+
+
+
+	</script>
+</body>
+</html>

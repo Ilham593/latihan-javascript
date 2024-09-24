@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+<body>
+    <h3>To-Do List</h3>
+    <input type="text" id="task-input" placeholder="Tambahkan tugas baru">
+    <button id="add-task">Tambah</button>
+    <ul id="task-list"></ul>
+    <p>Jumlah tugas yang belum selesai:
+     <span id="remaining-tasks">0</span>
+    </p>
+    <p>tugas yang telah selesai :
+        <span id="completed-tasks">0</span>
+    </p>
+
+    <script>
+        const taskInput = document.getElementById('task-input');
+        const addTaskButton = document.getElementById('add-task');
+        const taskList = document.getElementById('task-list');
+        const remainingTasks = document.getElementById('remaining-tasks');
+        const completedTasks = document.getElementById('completed-tasks');
+
+        addTaskButton.addEventListener('click', function() {
+            const task = taskInput.value;
+            console.log(task);
+            if (task !== '') {
+                const li = document.createElement('li');
+                const button = document.createElement('button');
+                const btnSelesai = document.createElement('button');
+                btnSelesai.textContent = 'Selesai';
+                li.textContent = task;
+                button.textContent = 'Hapus';
+                li.appendChild(btnSelesai);
+                li.appendChild(button);
+                taskList.appendChild(li);
+
+                // Update jumlah tugas yang belum selesai
+                remainingTasks.textContent = parseInt(remainingTasks.textContent) + 1;
+
+                taskInput.value = '';
+
+                // Event listener untuk menghapus tugas
+                button.addEventListener('click', function() {
+                    taskList.removeChild(li);
+                    remainingTasks.textContent = parseInt(remainingTasks.textContent) - 1;
+                });
+
+                btnSelesai.addEventListener('click', function() {
+                    taskList.removeChild(li);
+                    remainingTasks.textContent = parseInt(remainingTasks.textContent) - 1;
+                    completedTasks.textContent = parseInt(completedTasks.textContent) + 1;  
+                })
+            }
+        });
+    </script>
+</body>
+</html>

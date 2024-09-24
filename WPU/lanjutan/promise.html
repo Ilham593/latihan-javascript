@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>latihan belajar promise di js</title>
+</head>
+
+<body>
+    <script>
+    // const janji = new Promise((resolve, reject) => {
+    //     let suskes = false;
+    //     if (suskes) {
+    //         resolve('janji dilaksanakan');
+    //     } else {
+    //         reject('janji ditolak');
+    //     }
+
+    // })
+
+    // janji
+    //     .then(response => console.log('ok :' + response))
+    //     .catch(response => console.log('not ok :' + response))
+
+
+    function dapatkanDataPengguna() {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(response.statusText);
+                }
+                return response.json();
+            })
+            .then(responseJson => {
+                responseJson.forEach(user => {
+                    console.log(user.name);
+                })
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    dapatkanDataPengguna();
+
+    function tentukanHasil(pergi, callbackk) {
+        if (pergi) {
+            callbackk('ya');
+        } else {
+            callbackk('tidak');
+        }
+    }
+
+    let pergi = false;
+
+    tentukanHasil(pergi, function(hasill) {
+        console.log(hasill); // Output: ya
+    });
+    </script>
+</body>
+
+</html>

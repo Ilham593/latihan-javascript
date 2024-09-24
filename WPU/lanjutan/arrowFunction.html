@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>arrow function</title>
+</head>
+<body>
+	<script>
+		// arrow function
+		// const Mahasiswa = function(){
+		// 	this.nama = 'ilham',
+		// 	this.umur = 20
+		// 	this.sayHello = () =>{
+		// 		console.log(`halo, nama saya ${nama}, umur saya ${umur} tahun`)	
+		// 	}
+		// }	
+
+		// const mahasiswa = new Mahasiswa()
+
+		//konsep this pada arrow function
+		// const Mahasiswa = function(){
+		// 	this.nama = 'ilham',	
+		// 	this.umur = 20,
+		// 	this.sayHello = () => {
+		// 		console.log(`halo, nama saya ${this.nama}, umur saya ${this.umur} tahun`)	
+		// 	}
+		// }
+
+		// const mahasiswa = new Mahasiswa()
+
+		const Saya = function(){
+			this.nama = 'ilham',
+			this.umur = 20
+
+
+			setInterval(() => {
+				console.log(this.umur++)
+			}, 1000)
+		}
+
+		// const ilham = new Saya()
+	</script>
+</body>
+</html>

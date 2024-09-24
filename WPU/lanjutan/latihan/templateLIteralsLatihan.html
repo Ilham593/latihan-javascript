@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .divv {
+        color: red;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>belajar cara membuat template literals</h1>
+    <span id="app"></span>
+    <script>
+    // const mhs = {
+    //  nama: 'Daffa',
+    //  umur: 20,
+    //  alamat: 'Jl. Pahlawan',
+    //  noHp: '08123456789'
+    // }
+
+    // const  el = `
+    // <div class='divv'>
+    //  <h2>${mhs.nama}</h2>
+    //  <span class="umur">${mhs.umur}</span>
+    //  <p>${mhs.alamat}</p>
+    //  <p>${mhs.noHp}</p>
+    // </div>
+
+    // `
+
+    // document.body.innerHTML = el
+
+    // const mahasiswaKelas1 = [{
+    //         nama: 'Daffa',
+    //         umur: 20,
+    //     },
+    //     {
+    //         nama: 'ilham',
+    //         umur: 21,
+    //     },
+    //     {
+    //         nama: 'rendi',
+    //         umur: 23,
+    //     }
+    // ]
+
+    // const el = `
+    // <div>
+    //  <h1>
+    //   ${mahasiswaKelas1.map(mhs => `<ul>
+    //      <li>${mhs.nama}</li>
+    //      <li>${mhs.umur}</li>
+    //      </ul>`).join('')}
+    //  </h1>
+    // </div>
+    // `
+
+    // console.log(el)
+
+
+    // const span = document.getElementById('app')
+    // document.write(el)
+
+    // const lagu = [{
+    //         judul: 'jalan terbaik',
+    //         penyanyi: 'noah',
+    //         feat: 'ilham'
+    //     },
+    //     {
+    //         judul: 'jalan tidak',
+    //         penyanyi: 'noah'
+    //     }
+    // ];
+
+    // const el = `
+    //     <div>
+    //         <ul>
+    //             ${lagu.map(m => `<li>${m.judul} oleh ${m.penyanyi}${m.feat ? ` feat. ${m.feat}` : ''}</li>`).join('')}
+    //         </ul>
+    //     </div>
+    //     `;
+
+    // document.body.innerHTML = el;
+
+    const mhs = {
+        nama: 'Daffa',
+        umur: 20,
+        npm: 123456,
+        mata_kuliah: [
+            'web',
+            'mobile',
+            'iot',
+        ]
+    }
+
+    function mataKuliah(mataa_kuliah) {
+        return `
+            <ol>
+                ${mataa_kuliah.map(m => `<li>${m}</li>`).join('')}
+            </ol>
+        `
+    }
+
+
+
+    const el = `
+    <div>
+        <h1>${mhs.nama}</h1>
+        <p class="umur">${mhs.umur}</p>
+        <span class="npm">${mhs.npm}</span>
+        <p>Mata kuliah</p>
+        <p>${mataKuliah(mhs.mata_kuliah)}</p>
+
+    </div>
+    `
+    document.body.innerHTML = el
+    </script>
+</body>
+
+</html>
