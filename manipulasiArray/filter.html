@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //    ### 3. Filter dengan Kondisi
+      // Buat fungsi yang menerima array objek dan mengembalikan array baru yang hanya berisi objek dengan nilai tertentu.
+
+      function filterByValue(array, key, value) {
+        // Lengkapi kode di sini
+      
+
+       const filterItem = array.filter(item => item[key] === value)
+
+       if(filterItem.length === 0){
+        alert('id tidak terdaftar')
+       }
+
+       return filterItem
+      }
+
+      // Contoh penggunaan
+      const items = [
+        { id: 1, name: "A" },
+        { id: 2, name: "B" },
+        { id: 1, name: "C" },
+      ];
+      console.log('daftar item baru : ')
+    
+      console.log(filterByValue(items, "id", 9)); // Harusnya [{ id: 1, name: 'A' }, { id: 1, name: 'C' }]
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ubah Warna Setiap 2 Detik</title>
+</head>
+<body>
+  <h1>Warna halaman berubah setiap 2 detik</h1>
+
+  <script>
+    function changeColor() {
+      const colors = ['red', 'green', 'blue', 'yellow', 'purple']; // Buat array warna
+      let currentIndex = 0;
+
+      setInterval(() => {
+        // Lengkapi dengan logika untuk mengubah warna background
+        document.body.style.backgroundColor = colors[currentIndex]; // Ubah warna
+
+        // Lengkapi dengan logika untuk update indeks warna
+        currentIndex = (currentIndex + 1) % colors.length; // Perbarui indeks
+      }, 2000); // Interval 2 detik
+    }
+
+    // Panggil fungsi changeColor
+    changeColor();
+  </script>
+</body>
+</html>

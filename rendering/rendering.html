@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rendering halaman </title>
+</head>
+<body>
+  <h1>tes</h1>
+  <div id="myElement" style="display: none;">Halo, saya muncul setelah 3 detik!</div>
+
+  <script>
+    async function delayRender(id, delay){
+      const el = document.getElementById('myElement')
+      if(!el){
+        throw new Error('Id tidak di temukan')
+      }
+
+      await new Promise((resolve) => setTimeout(resolve, delay))
+
+      el.style.display = "block";
+    }
+
+    (async () => {
+      try{
+        await delayRender('myElement', 3000)
+        console.log('eleemnt di tampilkan')
+      }catch(err){
+        console.log(err)
+      }
+    })();
+  </script>
+</body>
+</html>

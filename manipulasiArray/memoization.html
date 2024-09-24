@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function memoize(fn) {
+        const cache = {}; // Step 2: Buat cache
+
+        return function (...args) {
+          // Step 3: Kembalikan fungsi baru
+          const key = JSON.stringify(args); // Step 4: Buat kunci dari argumen
+
+          if (cache[key]) {
+            // Cek jika hasil sudah ada di cache
+            return cache[key]; // Kembalikan hasil dari cache
+          }
+
+          const result = fn(...args); // Panggil fungsi asli
+          cache[key] = result; // Simpan hasil ke cache
+          return result; // Kembalikan hasil
+        };
+      }
+
+      // Contoh penggunaan
+      const factorial = (n) => (n <= 1 ? 1 : n * factorial(n - 1));
+      const memoizedFactorial = memoize(factorial);
+
+      console.log(memoizedFactorial(5)); // Harusnya 120
+      console.log(memoizedFactorial(5)); // Harusnya menggunakan hasil yang di-cache
+    </script>
+  </body>
+</html>

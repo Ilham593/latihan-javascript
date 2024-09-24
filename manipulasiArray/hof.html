@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //     ### 4. Higher-Order Function
+      // Buat fungsi yang menerima fungsi lain sebagai argumen dan mengembalikan fungsi baru.
+
+      function createMultiplier(multiplier) {
+        // Lengkapi kode di sini
+        return function(numbers){
+          return  function(triplee){
+            return triplee + numbers * multiplier
+          }
+        }
+      }
+
+      // Contoh penggunaan
+      const triple = createMultiplier(3)(9);
+      console.log(triple(10)); // Harusnya 30
+    </script>
+  </body>
+</html>

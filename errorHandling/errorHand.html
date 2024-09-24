@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //     ### 5. Error Handling
+      // Buat fungsi yang menggunakan try...catch untuk menangani error saat mengakses properti objek.
+
+      function getProperty(obj, key) {
+    try {
+        return obj[key]; // Mencoba mengakses properti berdasarkan key
+    } catch (error) {
+        return 'Property not found'; // Jika terjadi error, kembalikan pesan ini
+    }
+}
+
+// Contoh penggunaan
+const user = { name: "Ilham" };
+console.log(getProperty(user, "name")); // Harusnya 'Ilham'
+console.log(getProperty(user, "age")); // Harusnya 'Property not found'
+
+    </script>
+  </body>
+</html>
