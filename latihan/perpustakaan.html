@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class Buku {
+  constructor(judul, penulis, tahun) {
+    this.judul = judul;
+    this.penulis = penulis;
+    this.tahun = tahun;
+  }
+
+  tampilkanInfo() {
+    return `Judul: ${this.judul}, Penulis: ${this.penulis}, Tahun: ${this.tahun}`;
+  }
+}
+
+class Perpustakaan {
+  constructor() {
+    this.daftarBuku = [];
+  }
+
+  tambahBuku() {
+    const masukanJudul = prompt("Masukkan judul Buku baru : ");
+    if (masukanJudul === "") {
+      alert("Harap jangan kosongkan judul!");
+      return this.tambahBuku();
+    }
+
+    const masukanPenulis = prompt("Masukkan nama penulis : ");
+    if (masukanPenulis === "") {
+      alert("Harap jangan kosongkan penulis!");
+      return this.tambahBuku();
+    }
+
+    const masukanTahun = prompt("Masukkan tahun terbit : ");
+    if (masukanTahun === "") {
+      alert("Harap jangan kosongkan tahun!");
+      return this.tambahBuku();
+    }
+
+    const buku = new Buku(masukanJudul, masukanPenulis, masukanTahun);
+    this.daftarBuku.push(buku);
+    alert("Buku sudah ditambahkan ke dalam daftar.");
+  }
+
+  hapusBuku(index) {
+    if (this.daftarBuku.length === 0) {
+      alert("Tidak ada buku dalam daftar.");
+      return;
+    }
+
+    if (index >= 0 && index < this.daftarBuku.length) {
+      const konfirmasi = confirm(
+        `Apakah Anda yakin ingin menghapus buku "${this.daftarBuku[index].judul}"?`
+      );
+      if (!konfirmasi) {
+        return;
+      }
+
+      const bukuYangDihapus = this.daftarBuku[index].judul;
+      this.daftarBuku.splice(index, 1);
+
+      alert(
+        `Buku "${bukuYangDihapus}" berhasil dihapus. Daftar buku sekarang: ${this.daftarBuku
+          .map((buku) => buku.judul)
+          .join(", ")}`
+      );
+    } else {
+      alert(
+        `Indeks tidak terdaftar. Silakan masukkan indeks antara 0 dan ${
+          this.daftarBuku.length - 1
+        }.`
+      );
+    }
+  }
+
+  editBuku(index) {
+    if (this.daftarBuku.length === 0) {
+      alert("Tidak ada buku dalam daftar.");
+      return;
+    }
+
+    if (index >= 0 && index < this.daftarBuku.length) {
+      const buku = this.daftarBuku[index];
+
+      const masukanJudul = prompt("Masukkan judul baru:", buku.judul);
+      if (masukanJudul === "") {
+        alert("Harap jangan kosongkan input.");
+        return this.editBuku(index);
+      }
+
+      const masukanPenulis = prompt("Masukkan penulis baru:", buku.penulis);
+      if (masukanPenulis === "") {
+        alert("Harap jangan kosongkan input.");
+        return this.editBuku(index);
+      }
+
+      const masukanTahun = prompt("Masukkan tahun baru:", buku.tahun);
+      if (masukanTahun === "") {
+        alert("Harap jangan kosongkan input.");
+        return this.editBuku(index);
+      }
+
+      buku.judul = masukanJudul;
+      buku.penulis = masukanPenulis;
+      buku.tahun = masukanTahun;
+
+      alert("Buku sudah diperbarui.");
+    }
+  }
+
+  tampilkanBuku() {
+    if (this.daftarBuku.length === 0) {
+      alert("Tidak ada buku di dalam daftar.");
+      return;
+    }
+
+    let daftar = "";
+    this.daftarBuku.forEach((buku, index) => {
+      daftar += `${index + 1}. ${buku.tampilkanInfo()}\n`;
+    });
+    alert(daftar);
+  }
+
+  main() {
+    while (true) {
+      let pilihan = prompt(
+        "Pilih opsi: \n1. Tambah Buku \n2. Hapus Buku \n3. Edit Buku \n4. Tampilkan Buku \n5. Keluar"
+      );
+
+      pilihan = parseInt(pilihan);
+
+      if (pilihan === 1) {
+        this.tambahBuku();
+      } else if (pilihan === 2) {
+        const index = parseInt(prompt("Masukkan indeks buku yang ingin dihapus:"));
+        this.hapusBuku(index);
+      } else if (pilihan === 3) {
+        const index = parseInt(prompt("Masukkan indeks buku yang ingin diedit:"));
+        this.editBuku(index);
+      } else if (pilihan === 4) {
+        this.tampilkanBuku();
+      } else if (pilihan === 5) {
+        alert("Terima kasih telah menggunakan aplikasi ini.");
+        break;
+      } else {
+        alert("Pilihan tidak valid, silakan coba lagi.");
+      }
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const perpustakaan = new Perpustakaan();
+  perpustakaan.main();
+});
+
+  </script>
+</body>
+</html>
