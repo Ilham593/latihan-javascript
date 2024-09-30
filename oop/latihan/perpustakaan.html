@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class Buku {
+  constructor(judul, penulis, tahunTerbit) {
+    this.judul = judul;
+    this.penulis = penulis;
+    this.tahunTerbit = tahunTerbit;
+  }
+}
+
+class Perpustakaan {
+  constructor() {
+    this.daftarBuku = [];
+  }
+
+  tambahBuku() {
+    const judul = prompt("Masukkan judul buku:");
+    if (!judul) {
+      alert("Judul tidak boleh kosong");
+      return;
+    }
+
+    const penulis = prompt("Masukkan nama penulis:");
+    if (!penulis) {
+      alert("Penulis tidak boleh kosong");
+      return;
+    }
+
+    const tahunTerbit = prompt("Masukkan tahun terbit:");
+    if (!tahunTerbit || isNaN(tahunTerbit)) {
+      alert("Tahun terbit tidak boleh kosong dan harus berupa angka");
+      return;
+    }
+
+    const buku = new Buku(judul, penulis, tahunTerbit);
+    this.daftarBuku.push(buku);
+    alert("Buku berhasil ditambahkan.");
+  }
+
+  tampilkanBuku() {
+    if (this.daftarBuku.length === 0) {
+      alert("Tidak ada buku dalam perpustakaan");
+      return;
+    }
+
+    let daftar = "";
+    this.daftarBuku.forEach((buku, index) => {
+      daftar += `${index + 1}. Judul: ${buku.judul}, Penulis: ${buku.penulis}, Tahun: ${buku.tahunTerbit}\n`;
+    });
+
+    alert(daftar);
+  }
+
+  editBuku(index) {
+    if (index >= 0 && index < this.daftarBuku.length) {
+      const buku = this.daftarBuku[index];
+
+      const judulBaru = prompt("Masukkan judul baru:", buku.judul);
+      const penulisBaru = prompt("Masukkan penulis baru:", buku.penulis);
+      const tahunBaru = prompt("Masukkan tahun baru:", buku.tahunTerbit);
+
+      buku.judul = judulBaru || buku.judul;
+      buku.penulis = penulisBaru || buku.penulis;
+      buku.tahunTerbit = tahunBaru || buku.tahunTerbit;
+
+      alert("Buku berhasil diedit.");
+    } else {
+      alert("Indeks buku tidak valid");
+    }
+  }
+
+  hapusBuku(index) {
+    if (index >= 0 && index < this.daftarBuku.length) {
+      this.daftarBuku.splice(index, 1);
+      alert("Buku berhasil dihapus.");
+    } else {
+      alert("Indeks buku tidak valid");
+    }
+  }
+
+  main() {
+    while (true) {
+      const input = prompt(
+        "Masukkan pilihan:\n1. Tambah Buku\n2. Edit Buku\n3. Hapus Buku\n4. Tampilkan Buku\n5. Keluar"
+      );
+
+      switch (input) {
+        case "1":
+          this.tambahBuku();
+          break;
+        case "2":
+          const editIndex = parseInt(prompt("Masukkan indeks buku yang ingin diedit:"), 10) - 1;
+          this.editBuku(editIndex);
+          break;
+        case "3":
+          const hapusIndex = parseInt(prompt("Masukkan indeks buku yang ingin dihapus:"), 10) - 1;
+          this.hapusBuku(hapusIndex);
+          break;
+        case "4":
+          this.tampilkanBuku();
+          break;
+        case "5":
+          alert("Terima kasih telah menggunakan program ini.");
+          return;
+        default:
+          alert("Pilihan tidak valid. Silakan coba lagi.");
+      }
+
+      const ulang = confirm("Apakah Anda ingin melanjutkan?");
+      if (!ulang) {
+        alert('oke')
+        break;
+      }
+    }
+  }
+}
+
+const perpustakaan = new Perpustakaan();
+
+document.addEventListener("DOMContentLoaded", function () {
+  perpustakaan.main();
+});
+
+  </script>
+</body>
+</html>
